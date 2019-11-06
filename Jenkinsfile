@@ -28,12 +28,13 @@ pipeline {
                 snDevOpsChange()
                 echo "Unit Test"
                 sh "mvn test"
+                sleep 5
             }
             post {
                 always {
-                    junit "**/TEST-*.xml"
+                    junit '**/target/surefire-reports/*.xml' 
                 }
-            }
+          }
         }
         
         stage('performance-tests') {
@@ -42,12 +43,13 @@ pipeline {
                 snDevOpsChange()
                 echo "Testing"
                 sh "mvn test"
+                sleep 5
             }
             post {
                 always {
-                    junit "**/TEST-*.xml"
+                    junit '**/target/surefire-reports/*.xml' 
                 }
-            }
+          }
         }
 
         stage('integration-tests') {
@@ -56,12 +58,13 @@ pipeline {
                 snDevOpsChange()
                 echo "Testing"
                 sh "mvn test"
+                sleep 5
             }
             post {
                 always {
-                    junit "**/TEST-*.xml"
+                    junit '**/target/surefire-reports/*.xml' 
                 }
-            }
+          }
         }
 
         stage("deploy") {
@@ -95,12 +98,13 @@ pipeline {
                 snDevOpsChange()
                 echo "Testing"
                 sh "mvn test"
+                sleep 5
             }
-        }
-        post {
-            always {
-                junit "**/TEST-*.xml"
-            }
+            post {
+                always {
+                    junit '**/target/surefire-reports/*.xml' 
+                }
+          }
         }
     }
 
