@@ -3,7 +3,7 @@ for value in {1..5}
 do
 echo "commit - $value"  >> commits-sample.txt
 git add .
-git commit -m "PIP-10: Including Security checks - $value" 
+git commit -m "PIP-10: Including validations - $value" 
 git push
 done
 
@@ -11,7 +11,7 @@ for value in {1..5}
 do
 echo "commit - $value"  >> commits-sample.txt
 git add .
-git commit -m "PIP-13: Including Security checks - $value" 
+git commit -m "PIP-13: Including validations - $value" 
 git push
 done
 
@@ -19,7 +19,7 @@ for value in {1..5}
 do
 echo "commit - $value"  >> commits-sample.txt
 git add .
-git commit -m "PIP-14: Including Security checks - $value" 
+git commit -m "PIP-14: Including validations - $value" 
 git push
 done
 
@@ -27,7 +27,7 @@ for value in {1..5}
 do
 echo "commit - $value"  >> commits-sample.txt
 git add .
-git commit -m "PIP-1: Including Security checks - $value" 
+git commit -m "PIP-1: Including validations - $value" 
 git push
 done
 
