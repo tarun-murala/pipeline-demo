@@ -1,0 +1,33 @@
+#!/bin/bash
+for value in {1..5}
+do
+echo "commit - $value"  >> commits-sample.txt
+git add .
+git commit -m "PIP-10: $value" 
+git push
+done
+
+for value in {1..5}
+do
+echo "commit - $value"  >> commits-sample.txt
+git add .
+git commit -m "PIP-13: $value" 
+git push
+done
+
+for value in {1..5}
+do
+echo "commit - $value"  >> commits-sample.txt
+git add .
+git commit -m "PIP-14: $value" 
+git push
+done
+
+for value in {1..5}
+do
+echo "commit - $value"  >> commits-sample.txt
+git add .
+git commit -m "PIP-1: $value" 
+git push
+done
+

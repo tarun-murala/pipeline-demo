@@ -27,33 +27,30 @@ pipeline {
             }
         }
 
-        stage("test") {
-            parallel {
-                stage('Unit Test') {
-                    steps {
-                        snDevOpsStep()
-                        snDevOpsChange()
-                        echo "Unit Test"
-                        sh "mvn test -Dtest=AppTest"
-                    }
-                }
-                stage('UAT Test') {
-                    steps {
-                        snDevOpsStep ()
-                        snDevOpsChange()
-                        echo "Testing"
-                        sh "mvn test -Dtest=AddTest"
-                    }
-                }
+        stage('unit-tests') {
+            steps {
+                snDevOpsStep()
+                snDevOpsChange()
+                echo "Unit Test"
+                sh "mvn test"
             }
         }
-
-        stage("integration-test") {
+        
+        stage('performance-tests') {
             steps {
                 snDevOpsStep ()
                 snDevOpsChange()
                 echo "Testing"
-                sh "mvn test -Dtest=SubtractTest"
+                sh "mvn test"
+            }
+        }
+
+        stage('integration-tests') {
+            steps {
+                snDevOpsStep ()
+                snDevOpsChange()
+                echo "Testing"
+                sh "mvn test"
             }
         }
 
@@ -79,6 +76,15 @@ pipeline {
                         snDevOpsChange()
                     }
                 }
+            }
+        }
+
+        stage("final-smoke-test") {
+            steps {
+                snDevOpsStep ()
+                snDevOpsChange()
+                echo "Testing"
+                sh "mvn test"
             }
         }
     }
