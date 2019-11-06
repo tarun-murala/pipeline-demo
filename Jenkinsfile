@@ -29,6 +29,11 @@ pipeline {
                 echo "Unit Test"
                 sh "mvn test"
             }
+            post {
+                always {
+                    junit "**/TEST-*.xml"
+                }
+            }
         }
         
         stage('performance-tests') {
@@ -38,6 +43,11 @@ pipeline {
                 echo "Testing"
                 sh "mvn test"
             }
+            post {
+                always {
+                    junit "**/TEST-*.xml"
+                }
+            }
         }
 
         stage('integration-tests') {
@@ -46,6 +56,11 @@ pipeline {
                 snDevOpsChange()
                 echo "Testing"
                 sh "mvn test"
+            }
+            post {
+                always {
+                    junit "**/TEST-*.xml"
+                }
             }
         }
 
@@ -80,6 +95,11 @@ pipeline {
                 snDevOpsChange()
                 echo "Testing"
                 sh "mvn test"
+            }
+        }
+        post {
+            always {
+                junit "**/TEST-*.xml"
             }
         }
     }
